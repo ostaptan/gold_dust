@@ -6,6 +6,7 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+gem 'will_paginate', '~> 3.0'
 
 
 # Gems used only for assets and not required
@@ -34,8 +35,8 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'factory_girl_rails'
-  gem 'faker'
+  #gem 'factory_girl_rails'
+  #gem 'faker'
 end
 
 gem 'rack'
