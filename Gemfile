@@ -2,50 +2,33 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.3'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'mysql2'
+# Use will_paginate as the pagination plugin
 gem 'will_paginate', '~> 3.0'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platform => :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
+gem 'rack'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 group :development, :test do
+  # Using thin as the app server
   gem 'thin'
+  # Use tmail as mail receiver
   gem 'tmail', '~> 1.2.3'
   # Deploy with Capistrano
   gem 'capistrano'
   gem 'capistrano-ext'
+  # Use rspec as test platform
   gem 'rspec'
   gem 'rspec-rails'
-  gem 'capybara'
-  #gem 'factory_girl_rails'
-  #gem 'faker'
 end
-
-gem 'rack'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
