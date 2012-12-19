@@ -2,14 +2,12 @@
   <div class="header_block">
     <div class="right-content">
       <div class="head">
-        <% r = params[:controller].split('/') %>
-        <% title = r.first == 'massive' ? "#{r[0]} #{r[1]}" : 'massive' %>
-        <h1><%= link_to t(title), massive_index_path %></h1>
+        <h1><%= link_to t(:gold_dust), gold_dust_index_path %></h1>
       </div>
       <div class="text">
-        <%= link_to "#{:My_Account} [#{current_user.name}]", massive_profile_index_path, :class => 'btn btn-success' if logged_in?%>
-        <%= link_to t(:dashboard), massive_dashboard_index_path, :class => 'btn btn-info' %>
-        <%= link_to(t(:wonderful), '#', :class => 'btn btn-warning') %>
+        <%#= link_to "#{:My_Account} [#{current_user.name}]", gold_dust_profile_index_path, :class => 'btn btn-success' if logged_in?%>
+        <%#= link_to t(:dashboard), gold_dust_dashboard_index_path, :class => 'btn btn-info' %>
+        <%#= link_to(t(:wonderful), '#', :class => 'btn btn-warning') %>
       </div>
     </div>
   </div>

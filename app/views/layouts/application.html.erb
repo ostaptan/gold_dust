@@ -7,8 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= render :file => "navigation/header" %>
 <%= yield %>
-
+<%= render :file => "navigation/footer" %>
 </body>
 </html>
