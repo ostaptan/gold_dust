@@ -1,0 +1,34 @@
+<div class="edit-form">
+<%= form_for @user, :url => {:action => :process_register} do |form| %>
+    <p>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </p>
+    <p>
+      <%= form.label :surname %>
+      <%= form.text_field :surname %>
+    </p>
+    <p>
+      <%= form.label :phone %>
+      <%= form.text_field :phone %>
+    </p>
+    <p>
+      <%= form.label :mail %>
+      <%= form.email_field :mail %>
+    </p>
+    <p>
+      <%= form.label :gender %>
+      <%= form.select :gender, options_for_select([[:male, 'm'], [:female, 'f']]) %>
+    </p>
+  <p>
+    <%= form.label :password %>
+    <%= form.password_field :password_digest %>
+  </p>
+    <p>
+      <%= form.label :confirm_password %>
+      <%= form.password_field :confirm_password %>
+    </p>
+
+  <%= form.submit :save, :class => 'btn btn-success' %>
+<% end %>
+</div>

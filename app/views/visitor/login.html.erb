@@ -1,0 +1,17 @@
+<div class="edit-form">
+  <ul>
+    <%= form_tag :action => :do_login do %>
+        <%= label_tag :name, :name %>
+        <%= text_field_tag :name %>
+
+        <%= label_tag :password, :password %>
+        <%= password_field_tag :password %>
+        <%= submit_tag :enter, :class => 'btn btn-success' %>
+    <% end %>
+  </ul>
+</div>
+<div class="center-content">
+  <%= link_to t(:register), register_path, :class => 'btn btn-primary' %>
+</div>
+
+

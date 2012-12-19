@@ -1,4 +1,26 @@
 GoldDust::Application.routes.draw do
+
+  root :to => 'visitor#login'
+
+  match '/login' => 'visitor#login', :as => :login
+  match '/register' => 'visitor#register', :as => :register
+  match '/logout' => 'gold_dust#logout', :as => :logout
+
+  match '/gold_dust' => 'gold_dust#index', :as => :gold_dust_index
+
+  resources :visitor do
+    collection do
+      get :login
+      post :do_login
+      post :process_register
+    end
+  end
+
+  match '/admin' => 'admin#index', :as => :admin_index
+  namespace :admin do
+
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
