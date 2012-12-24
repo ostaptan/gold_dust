@@ -1,11 +1,10 @@
 <div id="footer" class="o4">
   <div class="footer_block">
-    <div class="center-content">
+    <div class="container">
       <div class="text">
         <% if logged_in? %>
-            <%= t(:all_rights_reserved) %> <br/>
-            <%= link_to t(:agreement), '#', :class => 'btn btn-primary' %>
-            <%= link_to t(:about), '#', :class => 'btn btn-info' %>
+            <%= t(:all_rights_reserved) %> <br/><br/><br/>
+            <%= link_to t(:about), gold_dust_index_path, :class => 'btn btn-info' %>
             <%= link_to t(:logout), logout_path, :class => 'btn btn-danger' %> <br><br>
         <% end %>
       </div>

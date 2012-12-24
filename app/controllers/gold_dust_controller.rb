@@ -6,11 +6,19 @@ class GoldDustController < ApplicationController
 
   end
 
+  def tickets
+
+  end
+
+  def people
+
+  end
+
   def authorize_access
     if logged_in?
       redirect_to admin_index_path if current_user.is_admin?
     else
-      redirect_to_with_notice login_path, t(:authorization_require)
+      redirect_to_with_notice login_path, :authorization_required
     end
   end
 

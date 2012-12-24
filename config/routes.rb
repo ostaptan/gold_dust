@@ -6,7 +6,7 @@ GoldDust::Application.routes.draw do
   match '/register' => 'visitor#register', :as => :register
   match '/logout' => 'gold_dust#logout', :as => :logout
 
-  match '/gold_dust' => 'gold_dust#index', :as => :gold_dust_index
+  #match '/gold_dust' => 'gold_dust#activity', :as => :gold_dust_index
 
   resources :visitor do
     collection do
@@ -14,6 +14,28 @@ GoldDust::Application.routes.draw do
       post :do_login
       post :process_register
     end
+  end
+
+  namespace :gold_dust do
+
+    resources :activity do
+      collection do
+        get :index
+      end
+    end
+
+    resources :tickets do
+      collection do
+        get :index
+      end
+    end
+
+    resources :people do
+      collection do
+        get :index
+      end
+    end
+
   end
 
   match '/admin' => 'admin#index', :as => :admin_index
@@ -76,5 +98,5 @@ GoldDust::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  match ':controller(/:action(/:id))(.:format)'
 end
