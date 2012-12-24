@@ -1,3 +1,5 @@
 <div class="container">
-  People
+  <% @people.each do |u| %>
+    <li><%= link_to u.name, gold_dust_person_path(u.id) %></li>
+  <% end %>
 </div>

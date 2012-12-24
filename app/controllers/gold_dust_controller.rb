@@ -22,4 +22,10 @@ class GoldDustController < ApplicationController
     end
   end
 
+  def get_ticket_data
+    id = params[:id]
+    redirect_to gold_dust_tickets_path unless id
+    @ticket = Ticket.find_by_id id
+  end
+
 end

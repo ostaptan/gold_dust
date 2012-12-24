@@ -45,11 +45,6 @@ module Helpers
       end
     end
 
-    #TODO MOVE TO HELPER
-    def team_logo_url id
-      "team_logos/logo-cards-#{id}.png"
-    end
-
   end
 
 end

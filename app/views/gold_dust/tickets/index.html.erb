@@ -1,3 +1,22 @@
-<div class="container">
-  Tickets
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <h4>TICKET REPORTS</h4><br>
+      <ol>
+        <li><%= link_to t(:active_tickets), '#' %></li>
+        <li><%= link_to t(:resolved_tickets), '#' %></li>
+        <li><%= link_to t(:closed_tickets), '#' %></li>
+        <li><%= link_to t(:my_active_tickets), '#' %></li>
+        <li><%= link_to t(:my_resolved_tickets), '#' %></li>
+        <li><%= link_to t(:my_closed_tickets), '#' %></li>
+      </ol>
+    </div>
+    <div class="span10">
+      <%= link_to t(:new_ticket), new_gold_dust_ticket_path %>
+      <br><br>
+      <%= t(:description_1) %>
+      <br>
+      <%= render :partial => 'tables' %>
+    </div>
+  </div>
 </div>

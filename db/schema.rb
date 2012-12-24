@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121217123508) do
+ActiveRecord::Schema.define(:version => 20121224182115) do
+
+  create_table "tickets", :force => true do |t|
+    t.string   "title",       :limit => 100,                       :null => false
+    t.string   "priority",                   :default => "medium"
+    t.integer  "reporter",                                         :null => false
+    t.integer  "assigned_to"
+    t.text     "body"
+    t.text     "history"
+    t.integer  "status",                     :default => 0
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name",                                              :null => false
@@ -32,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20121217123508) do
     t.string   "last_login_ip"
     t.datetime "created_at",                                        :null => false
     t.datetime "updated_at",                                        :null => false
+    t.integer  "ticket_id"
   end
 
 end

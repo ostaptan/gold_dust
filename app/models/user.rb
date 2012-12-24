@@ -25,6 +25,9 @@ class User < ActiveRecord::Base
   # validates_inclusion_of :gender, :in => GENDERS # m - male, f - female
 
   validates_uniqueness_of :phone
+  validates_uniqueness_of :mail
+
+  has_many :tickets, :class_name => 'Ticket', :foreign_key => 'assigned_to'
 
   def active?
     !self.visitor_user && self.active
@@ -48,7 +51,6 @@ class User < ActiveRecord::Base
   end
 
   def register(attr)
-
     self.active = true
     self.name = attr[:name]
     self.surname = attr[:surname]
@@ -68,6 +70,10 @@ class User < ActiveRecord::Base
     end
 
     r
+  end
+
+  def all_tickets
+    self.tickets
   end
 
   private

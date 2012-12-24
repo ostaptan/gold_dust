@@ -6,7 +6,7 @@ GoldDust::Application.routes.draw do
   match '/register' => 'visitor#register', :as => :register
   match '/logout' => 'gold_dust#logout', :as => :logout
 
-  #match '/gold_dust' => 'gold_dust#activity', :as => :gold_dust_index
+  match '/gold_dust' => 'gold_dust#index', :as => :gold_dust_index
 
   resources :visitor do
     collection do
@@ -27,6 +27,8 @@ GoldDust::Application.routes.draw do
     resources :tickets do
       collection do
         get :index
+        get :change_status
+        post :create_ticket
       end
     end
 

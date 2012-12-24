@@ -1,0 +1,92 @@
+<h3>Highest</h3>
+<table class="table table-condensed">
+  <tr>
+    <th>#</th>
+    <th>Summary</th>
+    <th>Reporter</th>
+    <th>Assignee</th>
+    <th>Status</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </tr>
+  <% @highest_tickets.each do |t| %>
+      <tr class="error">
+        <td><%= t.id %></td>
+        <td><%= link_to t.title, gold_dust_ticket_path(t.id) %></td>
+        <td><%= link_to t.reporter_user.name, gold_dust_person_path(t.reporter_user.id) %></td>
+        <td><%= link_to t.assigned_to_user.name, gold_dust_person_path(t.assigned_to_user.id) %></td>
+        <td><%= t.status_name %></td>
+        <td><%= t.created_at.strftime('%d %B %Y') %></td>
+        <td><%= t.updated_at.strftime('%d %B %Y') %></td>
+      </tr>
+  <% end %>
+</table>
+<h3>High</h3>
+<table class="table table-condensed">
+  <tr>
+    <th>#</th>
+    <th>Summary</th>
+    <th>Reporter</th>
+    <th>Assignee</th>
+    <th>Status</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </tr>
+  <% @high_tickets.each do |t| %>
+      <tr class="warning">
+        <td><%= t.id %></td>
+        <td><%= link_to t.title, gold_dust_ticket_path(t.id) %></td>
+        <td><%= link_to t.reporter_user.name, gold_dust_person_path(t.reporter_user.id) %></td>
+        <td><%= link_to t.assigned_to_user.name, gold_dust_person_path(t.assigned_to_user.id) %></td>
+        <td><%= t.status_name %></td>
+        <td><%= t.created_at.strftime('%d %B %Y') %></td>
+        <td><%= t.updated_at.strftime('%d %B %Y') %></td>
+      </tr>
+  <% end %>
+</table>
+<h3>Medium</h3>
+<table class="table table-condensed">
+  <tr>
+    <th>#</th>
+    <th>Summary</th>
+    <th>Reporter</th>
+    <th>Assignee</th>
+    <th>Status</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </tr>
+  <% @medium_tickets.each do |t| %>
+      <tr class="info">
+        <td><%= t.id %></td>
+        <td><%= link_to t.title, gold_dust_ticket_path(t.id) %></td>
+        <td><%= link_to t.reporter_user.name, gold_dust_person_path(t.reporter_user.id) %></td>
+        <td><%= link_to t.assigned_to_user.name, gold_dust_person_path(t.assigned_to_user.id) %></td>
+        <td><%= t.status_name %></td>
+        <td><%= t.created_at.strftime('%d %B %Y') %></td>
+        <td><%= t.updated_at.strftime('%d %B %Y') %></td>
+      </tr>
+  <% end %>
+</table>
+<h3>Low</h3>
+<table class="table table-condensed">
+  <tr>
+    <th>#</th>
+    <th>Summary</th>
+    <th>Reporter</th>
+    <th>Assignee</th>
+    <th>Status</th>
+    <th>Created</th>
+    <th>Updated</th>
+  </tr>
+  <% @low_tickets.each do |t| %>
+      <tr class="success">
+        <td><%= t.id %></td>
+        <td><%= link_to t.title, gold_dust_ticket_path(t.id) %></td>
+        <td><%= link_to t.reporter_user.name, gold_dust_person_path(t.reporter_user.id) %></td>
+        <td><%= link_to t.assigned_to_user.name, gold_dust_person_path(t.assigned_to_user.id) %></td>
+        <td><%= t.status_name %></td>
+        <td><%= t.created_at.strftime('%d %B %Y') %></td>
+        <td><%= t.updated_at.strftime('%d %B %Y') %></td>
+      </tr>
+  <% end %>
+</table>

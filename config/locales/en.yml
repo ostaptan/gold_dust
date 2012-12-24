@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+  description: "Tickets are the basis for managing all tasks and time spent on a project. They have an established lifecycle, as
+                  illustrated by the progress bar below. After creation, they are accepted, worked on, resolved, and then verified and
+                  closed."
+  description_1: "Use tickets to keep track of bugs, feature requests, or future enhancements for your project. Tickets are a fundamental tool for prioritizing and managing ownership of tasks on your project.
+                  For more advanced progress reports, look into time tracking. You can easily keep track of how many hours you have spent on different tickets, milestones and projects. Never be in the dark about the health of your project again!"
