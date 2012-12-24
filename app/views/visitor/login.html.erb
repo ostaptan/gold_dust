@@ -1,17 +1,9 @@
-<div class="edit-form">
-  <ul>
-    <%= form_tag :action => :do_login do %>
-        <%= label_tag :name, :name %>
-        <%= text_field_tag :name %>
-
-        <%= label_tag :password, :password %>
-        <%= password_field_tag :password %>
-        <%= submit_tag :enter, :class => 'btn btn-success' %>
-    <% end %>
-  </ul>
+<div class="container">
+  <h2 class="form-signin-heading">Please sign in</h2>
+  <%= form_tag :action => :do_login do %>
+      <datalist> <%= text_field_tag :mail, nil, :placeholder => "Email" %> </datalist><br>
+      <datalist>  <%= password_field_tag :password, nil, :placeholder => "Password" %></datalist><br>
+      <datalist> <%= submit_tag 'Sign in', :class => 'btn btn-large btn-primary' %> </datalist><br>
+  <% end %>
 </div>
-<div class="center-content">
-  <%= link_to t(:register), register_path, :class => 'btn btn-primary' %>
-</div>
-
 

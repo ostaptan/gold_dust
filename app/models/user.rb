@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   attr_accessor :visitor_user
 
   validates_presence_of :name
+  validates_presence_of :mail
   validates_uniqueness_of :name, :case_sensitive => false
   validates_size_of :name, :within => 4..20, :allow_nil => false
   #validates_format_of :name, :with => /^([a-zA-Z0-9]+[a-zA-Z0-9 _\-]+[a-zA-Z0-9]+)/, :allow_nil => true, :if => :validate_format_of_name, :message => :format
@@ -52,19 +53,18 @@ class User < ActiveRecord::Base
     self.name = attr[:name]
     self.surname = attr[:surname]
     self.mail = attr[:mail]
-    self.phone = attr[:phone]
     self.gender = attr[:gender]
     self.password_digest = User.encrypt_a_password(attr[:password_digest]) if attr[:password_digest]
     self.save!
   end
 
-  def authenticate(user_name, user_password)
+  def authenticate(user_mail, user_password)
     encrypted_password = User.encrypt_a_password(user_password)
-    r = User.all :conditions => ["name = ? and password_digest = ?", user_name, encrypted_password ]
+    r = User.all :conditions => ["mail = ? and password_digest = ?", user_mail, encrypted_password ]
 
     unless r
       encrypted_password = User.encrypt_a_password(user_password, true)
-      r = User.all :conditions => ["name = ? and password_digest = ?", user_name, encrypted_password ]
+      r = User.all :conditions => ["mail = ? and password_digest = ?", user_mail, encrypted_password ]
     end
 
     r

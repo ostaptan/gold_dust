@@ -13,11 +13,11 @@ class VisitorController < ApplicationController
 
   def do_login
 
-    name = params[:name]
+    mail = params[:mail]
     pswd = params[:password]
 
-    unless name.blank? || pswd.blank?
-      user = User.find_by_name(name).try(:authenticate, name, pswd)
+    unless mail.blank? || pswd.blank?
+      user = User.find_by_mail(mail).try(:authenticate, mail, pswd)
       if user
         url = gold_dust_index_path
         #send_mail(user)
