@@ -3,7 +3,7 @@ class VisitorController < ApplicationController
   include VisitorExtensions::Register
 
   def index
-    redirect_to logged_in? ? gold_dust_index_path : :action => :login
+
   end
 
   def login

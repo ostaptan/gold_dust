@@ -1,5 +1,12 @@
 <div class="container">
+  <h3>People</h3>
+  <%= t(:p_description)  %>
+  <h4>Currently Involved People</h4>
   <% @people.each do |u| %>
-    <li><%= link_to u.name, gold_dust_person_path(u.id) %></li>
+
+        <%= "#{u.name.camelize} #{u.surname.camelize}" %><br>
+        <%= u.mail %><br><br>
+
+
   <% end %>
 </div>

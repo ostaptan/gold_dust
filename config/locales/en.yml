@@ -8,3 +8,4 @@ en:
                   closed."
   description_1: "Use tickets to keep track of bugs, feature requests, or future enhancements for your project. Tickets are a fundamental tool for prioritizing and managing ownership of tasks on your project.
                   For more advanced progress reports, look into time tracking. You can easily keep track of how many hours you have spent on different tickets, milestones and projects. Never be in the dark about the health of your project again!"
+  p_description: "The People tab shows you a list of all people associated with this account across all projects. This shows their last login time, as well as the number of projects in which they are involved."

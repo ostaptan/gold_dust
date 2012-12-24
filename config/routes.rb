@@ -1,6 +1,6 @@
 GoldDust::Application.routes.draw do
 
-  root :to => 'visitor#login'
+  root :to => 'visitor#index'
 
   match '/login' => 'visitor#login', :as => :login
   match '/register' => 'visitor#register', :as => :register

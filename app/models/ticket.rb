@@ -46,7 +46,8 @@ class Ticket < ActiveRecord::Base
   end
 
   def reporter_user
-    User.find_by_id self.reporter
+    u = User.find_by_name self.reporter
+    u ? u.name : u
   end
 
   def assigned_to_user

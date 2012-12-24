@@ -1,6 +1,6 @@
 class GoldDustController < ApplicationController
 
-  before_filter :authorize_access, :except => [:logout]
+  before_filter :authorize_access, :except => [:logout, :new]
 
   def index
 

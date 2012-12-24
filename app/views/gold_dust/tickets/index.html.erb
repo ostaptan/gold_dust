@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2">
-      <h4>TICKET REPORTS</h4><br>
+      <h4>TICKET REPORTS</h4><hr>
       <ol>
         <li><%= link_to t(:active_tickets), '#' %></li>
         <li><%= link_to t(:resolved_tickets), '#' %></li>
@@ -13,7 +13,7 @@
     </div>
     <div class="span10">
       <%= link_to t(:new_ticket), new_gold_dust_ticket_path %>
-      <br><br>
+      <hr>
       <%= t(:description_1) %>
       <br>
       <%= render :partial => 'tables' %>

@@ -14,7 +14,7 @@
     <div class="span10">
       <!--Body content-->
       <%= link_to t(:new_ticket), new_gold_dust_ticket_path %>
-      <br><br>
+      <hr>
       <%= t(:description) %>
       <h3><%= @ticket.title %></h3>
 
@@ -22,12 +22,12 @@
       <table class="table table-striped">
         <tr>
           <th><%= "Status: #{@ticket.priority.capitalize}" %></th>
-          <th>Reporter: <%= link_to @ticket.reporter_user.name, gold_dust_person_path(@ticket.reporter_user.id) %></th>
+          <th>Reporter: <%= @ticket.reporter_user %></th>
         </tr>
         <tr>
           <th></th>
           <th>Assigned
-            To: <%= link_to @ticket.assigned_to_user.name, gold_dust_person_path(@ticket.reporter_user.id) %></th>
+            To: <%= link_to @ticket.assigned_to_user.name, gold_dust_person_path(@ticket.assigned_to_user.id) %></th>
         </tr>
       </table>
       <%= link_to t(:edit_ticket), edit_gold_dust_ticket_path(@ticket.id) %> |
@@ -39,7 +39,7 @@
           <%= link_to t(:resolve_ticket), :action => :resolve_ticket, :id => @ticket.id %> |
           <%= link_to t(:close_ticket), :action => :close_ticket, :id => @ticket.id %> |
       <% end %>
-
+      <hr>
       <div class="progress">
         <% case @ticket.status %>
         <% when 0 %>
@@ -58,7 +58,7 @@
         <div class="span4">Resolved</div>
         <div class="pull-right">Closed</div>
       </div>
-      <br>
+      <hr>
       <blockquote>
         <p><%= @ticket.body %></p>
       </blockquote>

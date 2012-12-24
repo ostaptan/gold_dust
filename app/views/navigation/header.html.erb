@@ -7,17 +7,17 @@
         <span class="icon-bar"></span>
       </a>
 
-      <div class="brand"><%= link_to t(:gold_dust), gold_dust_index_path %></div>
+      <div class="brand"><%= link_to t(:gold_dust), visitor_index_path %></div>
       <div class="nav-collapse collapse">
         <p class="navbar-text pull-right">
           <% if current_user %>
-            Logged in as <%= link_to current_user.name, new_gold_dust_person_path %>
+            Logged in as <%= current_user.name %>
           <% else %>
             <%= link_to t(:register), register_path %>
+            <%= link_to t(:login), login_path %>
           <% end %>
         </p>
         <ul class="nav">
-          <li class="active"><%= link_to t(:activity), gold_dust_activity_index_path %></li>
           <li><%= link_to t(:tickets), gold_dust_tickets_path %></li>
           <li><%= link_to t(:people), gold_dust_people_path %></li>
         </ul>
