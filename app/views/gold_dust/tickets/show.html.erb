@@ -3,12 +3,12 @@
     <div class="span2">
       <h4>TICKET REPORTS</h4><br>
       <ol>
-        <li><%= link_to t(:active_tickets), '#' %></li>
-        <li><%= link_to t(:resolved_tickets), '#' %></li>
-        <li><%= link_to t(:closed_tickets), '#' %></li>
-        <li><%= link_to t(:my_active_tickets), '#' %></li>
-        <li><%= link_to t(:my_resolved_tickets), '#' %></li>
-        <li><%= link_to t(:my_closed_tickets), '#' %></li>
+        <li><%= link_to t(:active_tickets), :action => :index, :type => 0 %></li>
+        <li><%= link_to t(:resolved_tickets), :action => :index, :type => 2 %></li>
+        <li><%= link_to t(:closed_tickets), :action => :index, :type => 3 %></li>
+        <li><%= link_to t(:my_active_tickets), :action => :index, :type => 'my_0' %></li>
+        <li><%= link_to t(:my_resolved_tickets), :action => :index, :type => 'my_2' %></li>
+        <li><%= link_to t(:my_closed_tickets), :action => :index, :type => 'my_3' %></li>
       </ol>
     </div>
     <div class="span10">
@@ -27,17 +27,19 @@
         <tr>
           <th></th>
           <th>Assigned
-            To: <%= link_to @ticket.assigned_to_user.name, gold_dust_person_path(@ticket.assigned_to_user.id) %></th>
+            To: <%= @ticket.assigned_to_user.name %></th>
         </tr>
       </table>
-      <%= link_to t(:edit_ticket), edit_gold_dust_ticket_path(@ticket.id) %> |
-      <%= link_to t(:make_a_comment), '#' %> <br>
-      <% if @ticket.status == 0 %>
-          <%= link_to t(:accept_ticket), :action => :accept_ticket, :id => @ticket.id %> |
-          <%= link_to t(:resolve_ticket), :action => :resolve_ticket, :id => @ticket.id %> |
-      <% else %>
-          <%= link_to t(:resolve_ticket), :action => :resolve_ticket, :id => @ticket.id %> |
-          <%= link_to t(:close_ticket), :action => :close_ticket, :id => @ticket.id %> |
+      <% if current_user %>
+          <% if @ticket.status == 0 %>
+              <%= link_to t(:edit_ticket), edit_gold_dust_ticket_path(@ticket.id) %> |
+              <%= link_to t(:accept_ticket), :action => :accept_ticket, :id => @ticket.id %> |
+              <%= link_to t(:resolve_ticket), :action => :resolve_ticket, :id => @ticket.id %> |
+          <% elsif @ticket.status < 3 %>
+              <%= link_to t(:edit_ticket), edit_gold_dust_ticket_path(@ticket.id) %> |
+              <%= link_to t(:resolve_ticket), :action => :resolve_ticket, :id => @ticket.id %> |
+              <%= link_to t(:close_ticket), :action => :close_ticket, :id => @ticket.id %> |
+          <% end %>
       <% end %>
       <hr>
       <div class="progress">
@@ -66,6 +68,9 @@
       <blockquote class="pull-right">
         <small>Created on <%= @ticket.created_at.strftime('%d %B %Y') %></small>
       </blockquote>
+
+      <h4>Comments</h4>
+      <%= render :partial => 'comments' %>
     </div>
   </div>
 </div>

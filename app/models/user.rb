@@ -76,6 +76,17 @@ class User < ActiveRecord::Base
     self.tickets
   end
 
+  def self.send_mail(ticket)
+    m = TMail::Mail.new
+
+    m.subject = "Ticket to support"
+    m.to, m.from = ticket.reporter_mail, 'support'
+    m.date = Time.now
+    m.body = "Thank you for delivering us a ticket! You can review it by url localhost:3000/gold_dust/tickets/#{ticket.id}"
+
+    ActionMailer::Base.deliver(m)
+  end
+
   private
 
   # private class methods

@@ -1,0 +1,18 @@
+<div class="edit-form">
+  <%= form_for @comment, :url => {:action => :create_comment, :id => @ticket.id} do |form| %>
+      <p>
+        <%= form.text_area :message, :placeholder => "Your Comment", :rows => 4 %>
+      </p>
+      <%= form.submit :create, :class => 'btn btn-success' %>
+  <% end %>
+</div>
+<% @ticket.comments.each do |c| %>
+    <li>
+      Author: <%= c.author %><br>
+      Comment: <%= c.message %><br>
+      <blockquote>
+        <small>Created on <%= c.created_at.strftime('%d %B %Y') %></small>
+      </blockquote>
+    </li>
+    <hr>
+<% end %>

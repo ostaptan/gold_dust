@@ -1,0 +1,25 @@
+<div class="edit-form">
+  <%= form_for @ticket, :url => {:action => :create_ticket} do |form| %>
+      <p>
+        <%= form.text_field :title, :placeholder => "Short Summary" %>
+      </p>
+
+      <p>
+        <%= form.text_area :body, :placeholder => "Full Description", :rows => 3 %>
+      </p>
+      <%= label_tag :priority %>
+      <%= form.select :priority, options_for_select(Ticket.priorities) %>
+      <%= label_tag :assign_to %>
+      <%= form.select :assigned_to, options_for_select(User.all.collect { |u| u.name }) %>
+      <% unless current_user %>
+          <p>
+            <%= form.text_field :reporter, :placeholder => "Your name" %>
+          </p>
+
+          <p>
+            <%= form.email_field :reporter_mail, :placeholder => "Your email" %>
+          </p>
+      <% end %>
+      <%= form.submit :create, :class => 'btn btn-success' %>
+  <% end %>
+</div>

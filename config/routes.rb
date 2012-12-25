@@ -18,17 +18,12 @@ GoldDust::Application.routes.draw do
 
   namespace :gold_dust do
 
-    resources :activity do
-      collection do
-        get :index
-      end
-    end
-
     resources :tickets do
       collection do
         get :index
         get :change_status
         post :create_ticket
+        post :create_comment
       end
     end
 
