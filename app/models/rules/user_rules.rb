@@ -75,53 +75,6 @@ module Rules
       true
     end
 
-    def can_add_friend?(friend_id)
-      friend = User.find_by_id(friend_id)
-
-      if friend.nil?
-        self.errors[:base] << t_error(:relations, :friend_not_exist)
-        return false
-      end
-
-      if self.has_friend?(friend)
-        self.errors[:base] << t_error(:relations, :friend_already_exist)
-        return false
-      end
-
-      if friend.has_friend_request?(self)
-        self.errors[:base] << t_error(:relations, :you_already_added)
-        return false
-      end
-
-      if self.has_friend_request?(friend)
-        self.errors[:base] << t_error(:relations, :friend_already_invited, user_name => friend.name)
-        return false
-      end
-
-      true
-    end
-
-    def can_accept_friendship?(relation_id)
-      relation = UserRelationship.find_by_id(relation_id)
-
-      if relation.nil?
-        self.errors[:base] << t_error(:relations, :invitation_not_exist)
-        return false
-      end
-
-      if relation.accepted?
-        self.errors[:base] << t_error(:relations, :already_accepted)
-        return false
-      end
-
-      if relation.friend != self
-        self.errors[:base] << t_error(:relations, :wrong_acceptor)
-        return false
-      end
-
-      true
-    end
-
   end
 
 end
