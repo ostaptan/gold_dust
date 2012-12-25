@@ -11,7 +11,7 @@ module VisitorExtensions
 
     def process_register
       attr = params[:user]
-      redirect_t :register if attr[:password_digest] != attr[:confirm_password]
+      redirect_to :register if attr[:password_digest] != attr[:confirm_password]
       if @user.register(attr)
         redirect_to :controller => :gold_dust, :action => :index
       else
