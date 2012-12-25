@@ -28,7 +28,9 @@ class GoldDust::TicketsController < GoldDustController
     attr = params[:ticket]
     reporter = current_user ? current_user.name : attr[:reporter]
     if @ticket.create_new(attr, reporter)
-      User.send_mail(@ticket)
+      #TODO uncomment when deploying on prod
+      # mail sending works only in production
+      #User.send_mail(@ticket)
       redirect_to gold_dust_ticket_path(@ticket.id)
     else
       redirect_to_with_notice gold_dust_tickets_path, t(:something_wrong)
