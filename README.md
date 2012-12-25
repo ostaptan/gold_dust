@@ -14,6 +14,8 @@ After cloning app from git you have to do next things for proper app installatio
 
 6) go to localhost:3000/ in the browser
 
+7) you need to register some users (staff) for appropriate program work.
+
 
 
 ---------------
