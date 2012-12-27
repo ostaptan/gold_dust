@@ -4,10 +4,10 @@ class GoldDust::TicketsController < GoldDustController
 
   def index
     type = params[:type]
-    @low_tickets = Ticket.find_by_type('low', type, current_user.id)
-    @medium_tickets = Ticket.find_by_type('medium', type, current_user.id)
-    @high_tickets = Ticket.find_by_type('high', type, current_user.id)
-    @highest_tickets = Ticket.find_by_type('highest', type, current_user.id)
+    @low_tickets = Ticket.find_by_type('low', type, current_user.id) || []
+    @medium_tickets = Ticket.find_by_type('medium', type, current_user.id) || []
+    @high_tickets = Ticket.find_by_type('high', type, current_user.id) || []
+    @highest_tickets = Ticket.find_by_type('highest', type, current_user.id) || []
   end
 
   def show

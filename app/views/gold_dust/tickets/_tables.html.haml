@@ -1,0 +1,76 @@
+%h3 Highest
+%table{:class => "table table-condensed"}
+  %tr
+    %th id
+    %th Summary
+    %th Reporter
+    %th Assignee
+    %th Status
+    %th Created
+    %th Updated
+  - @highest_tickets.each do |t|
+    %tr{:class=>"error"}
+      %td= t.id 
+      %td= link_to t.title, gold_dust_ticket_path(t.id)
+      %td= t.reporter_user
+      %td= t.assigned_to_user.name
+      %td= t.status_name
+      %td= t.created_at.strftime('%d %B %Y')
+      %td= t.updated_at.strftime('%d %B %Y')
+%h3 High
+%table{:class => "table table-condensed"}
+  %tr
+    %th id
+    %th Summary
+    %th Reporter
+    %th Assignee
+    %th Status
+    %th Created
+    %th Updated
+  - @high_tickets.each do |t|
+    %tr{:class=>"warning"}
+      %td= t.id
+      %td= link_to t.title, gold_dust_ticket_path(t.id)
+      %td= t.reporter_user
+      %td= t.assigned_to_user.name
+      %td= t.status_name
+      %td= t.created_at.strftime('%d %B %Y')
+      %td= t.updated_at.strftime('%d %B %Y')
+%h3 Medium
+%table{:class => "table table-condensed"}
+  %tr
+    %th id
+    %th Summary
+    %th Reporter
+    %th Assignee
+    %th Status
+    %th Created
+    %th Updated
+  - @medium_tickets.each do |t|
+    %tr{:class=>"info"}
+      %td= t.id
+      %td= link_to t.title, gold_dust_ticket_path(t.id)
+      %td= t.reporter_user
+      %td= t.assigned_to_user.name
+      %td= t.status_name
+      %td= t.created_at.strftime('%d %B %Y')
+      %td= t.updated_at.strftime('%d %B %Y')
+%h3 Low
+%table{:class => "table table-condensed"}
+  %tr
+    %th id
+    %th Summary
+    %th Reporter
+    %th Assignee
+    %th Status
+    %th Created
+    %th Updated
+  - @low_tickets.each do |t|
+    %tr{:class=>"success"}
+      %td= t.id
+      %td= link_to t.title, gold_dust_ticket_path(t.id)
+      %td= t.reporter_user
+      %td= t.assigned_to_user.name
+      %td= t.status_name
+      %td= t.created_at.strftime('%d %B %Y')
+      %td= t.updated_at.strftime('%d %B %Y')
