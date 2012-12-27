@@ -23,6 +23,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :development, :test do
   # Using thin as the app server
   gem 'thin'
+  gem 'haml'
   # Use tmail as mail receiver
   gem 'tmail', '~> 1.2.3'
   # Deploy with Capistrano

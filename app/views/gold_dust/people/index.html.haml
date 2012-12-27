@@ -1,0 +1,8 @@
+#container
+  %h3 People
+  = t(:p_description)
+  %h4 Currently Involved People
+  - @people.each do |u|
+    %li= "#{u.name.camelize} #{u.surname.camelize}"
+    = u.mail
+    %br
