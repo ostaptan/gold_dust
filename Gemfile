@@ -24,6 +24,7 @@ group :development, :test do
   # Using thin as the app server
   gem 'thin'
   gem 'haml'
+  gem 'meta_request', '0.2.0'
   # Use tmail as mail receiver
   gem 'tmail', '~> 1.2.3'
   # Deploy with Capistrano
