@@ -13,27 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20121225094254) do
 
-  create_table "comments", :force => true do |t|
-    t.integer  "ticket_id",  :null => false
-    t.text     "message"
-    t.integer  "author_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "tickets", :force => true do |t|
-    t.string   "title",         :limit => 100,                       :null => false
-    t.string   "priority",                     :default => "medium"
-    t.integer  "assigned_to"
-    t.text     "body"
-    t.text     "history"
-    t.integer  "status",                       :default => 0
-    t.datetime "created_at",                                         :null => false
-    t.datetime "updated_at",                                         :null => false
-    t.string   "reporter_mail"
-    t.string   "reporter"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "name",                                              :null => false
     t.string   "password_digest",                                   :null => false
@@ -53,7 +32,6 @@ ActiveRecord::Schema.define(:version => 20121225094254) do
     t.string   "last_login_ip"
     t.datetime "created_at",                                        :null => false
     t.datetime "updated_at",                                        :null => false
-    t.integer  "ticket_id"
   end
 
 end

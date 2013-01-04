@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :gender,             :limit => 1
       t.boolean :active,            :default => false
       t.integer :is_admin,          :default => false
-      t.integer :ticket_id
       t.string :surname
       t.string :mail,               :null => false
       t.string :avatar
