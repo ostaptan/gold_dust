@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :mail,               :null => false
       t.string :avatar
       t.string :settings
+      t.text :tags
       t.integer  :login_count,      :null => false, :default => 0 # optional, see Authlogic::Session::MagicColumns
       t.datetime :last_request_at  # optional, see Authlogic::Session::MagicColumns
       t.datetime :current_login_at # optional, see Authlogic::Session::MagicColumns

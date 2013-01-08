@@ -3,7 +3,7 @@ class GoldDustController < ApplicationController
   before_filter :authorize_access, :except => [:logout]
 
   def index
-
+    redirect_to(gold_dust_user_path(current_user.id))
   end
 
   def authorize_access

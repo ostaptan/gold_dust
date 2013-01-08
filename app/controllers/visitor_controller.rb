@@ -6,6 +6,10 @@ class VisitorController < ApplicationController
 
   end
 
+  def about
+
+  end
+
   def login
     redirect_to gold_dust_index_path if logged_in?
     @user = User.new

@@ -11,6 +11,7 @@ GoldDust::Application.routes.draw do
   resources :visitor do
     collection do
       get :login
+      get :about
       post :do_login
       post :process_register
     end
@@ -21,6 +22,7 @@ GoldDust::Application.routes.draw do
     resources :users do
       collection do
         get :index
+        get :show
       end
     end
 
