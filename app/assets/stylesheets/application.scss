@@ -5,45 +5,13 @@ $background_color: #959499;
 $theme_dir: '/assets/images';
 $font_family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-@mixin bg_img($img, $p: repeat
-
-0
-0
-)
-{
-  background: url("#{$theme_dir}/#{$img}") $p
-;
-}
-
-// хак для прозорості
-@mixin bg_opacity(){
-  background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQIHWNgSAMAAGkAZ9QfhWEAAAAASUVORK5CYII=');
-//background: transparent url('#{$theme_dir}/40.png');
-}
-
-@mixin bg_667(){
-  background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApsAAAABCAQAAAA7+a3jAAAAqUlEQVQ4y81R7Q7DIAgEO9//gUvt9KJVhHUm6495OTg+pMQyCTGdROBotbKR5l2kM9b6WW1tlOpG2qe6aRp65xleZa32WfUt2veFDkBoh94BGdjygui4kID+OuQq/bc8P+s5euI8P/H/Dv/UzUax6esZrTgjZGxgwQucEZGP0MVvuBEz27wyp5xwzWWl/Ox6592t4OzQu+w97ee6V121hA24bqHfmb5yUG8zzpn5HsXGJQAAAABJRU5ErkJggg==') center 0;
-}
-
-.body {
-  margin: 0;
-  font-family: $font_family;
-  font-size: 14px;
-  line-height: 20px;
-  color: #333333;
-  background-color: $background_color;
-  max-width: $max_width;
-}
-
 .center-content {
-  width: $min_width;
   text-align: center;
   padding: 5px 0;
   margin: 0 auto;
 }
 
 .background {
-  //@include bg_img('page-bg-t.png', repeat center 0);
   min-width: $min_width;
   max-width: $max_width;
   margin: auto;
@@ -112,11 +80,9 @@ $font_family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 .alert {
   text-align: left;
   color: #C09853;
-  @include bg_opacity();
   margin: 0 auto;
   div.bottom {
     padding: 0;
-    @include bg_img("border.png", repeat-x center 0);
     height: 2px;
   }
 
@@ -191,7 +157,7 @@ $font_family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .other_link {
-    @include bg_opacity();
+
     text-align: center;
     margin: 0 auto;
 
@@ -273,7 +239,6 @@ $font_family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
   .other_link {
-    @include bg_opacity();
     text-align: right;
     margin: 0 auto;
 
@@ -324,6 +289,7 @@ audio:not([controls]) {
 
 html {
   font-size: 100%;
+  background-color: #4844ff;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
 }

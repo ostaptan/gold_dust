@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -11,15 +11,11 @@
       <div class="nav-collapse collapse">
         <p class="navbar-text pull-right">
           <% if current_user %>
-            Logged in as <%= current_user.name %>
-          <% else %>
-            <%= link_to t(:register), register_path %>
-            <%= link_to t(:login), login_path %>
+            Logged in as <%= link_to current_user.name, gold_dust_user_path(current_user.id) %>
           <% end %>
         </p>
         <ul class="nav">
-          <li><%= link_to t(:tickets), gold_dust_tickets_path %></li>
-          <li><%= link_to t(:people), gold_dust_people_path %></li>
+
         </ul>
       </div>
       <!--/.nav-collapse -->

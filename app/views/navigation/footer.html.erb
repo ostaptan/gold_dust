@@ -1,13 +1,24 @@
-<div id="footer" class="o4">
-  <div class="footer_block">
+<div class="navbar navbar-fixed-bottom">
+  <div class="navbar-inner">
     <div class="container">
-      <div class="text">
-        <% if logged_in? %>
-            <%= t(:all_rights_reserved) %> <br/><br/><br/>
-            <%= link_to t(:about), gold_dust_index_path, :class => 'btn btn-info' %>
-            <%= link_to t(:logout), logout_path, :class => 'btn btn-danger' %> <br><br>
-        <% end %>
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+
+      <div class="nav-collapse collapse">
+        <p class="navbar-text pull-right">
+          <%= link_to t(:logout), logout_path, :class => 'btn btn-success' %>
+        </p>
+        <ul class="nav navbar-text">
+          <%= t(:all_rights_reserved) %>
+          <li class="divider-vertical"></li> |||
+          <%= link_to t(:about), gold_dust_index_path %>
+        </ul>
       </div>
+
+      <!--/.nav-collapse -->
     </div>
   </div>
 </div>

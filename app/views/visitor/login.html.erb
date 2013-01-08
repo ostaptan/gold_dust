@@ -3,7 +3,8 @@
   <%= form_tag :action => :do_login do %>
       <%= text_field_tag :mail, nil, :placeholder => "Email" %> <br>
       <%= password_field_tag :password, nil, :placeholder => "Password" %><br>
-      <%= submit_tag 'Sign in', :class => 'btn btn-large btn-primary' %><br>
+      <%= submit_tag 'Sign in', :class => 'btn btn-large btn-primary' %>
+      <%= link_to t(:register), register_path, :class => 'btn btn-large btn-success' %>
   <% end %>
 </div>
 
